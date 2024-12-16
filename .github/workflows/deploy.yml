@@ -13,13 +13,14 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v3
 
-    - name: SSH and deploy
-      uses: appleboy/ssh-action@v0.1.9
+    - name: Set up SSH key
+      uses: webfactory/ssh-agent@v0.5.4
       with:
-        host: 103.191.240.173
-        username: ${{ secrets.host }}
-        password: ${{ secrets.password }}
-        port: 22
-        script: |
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: SSH and deploy
+      run: |
+        ssh -o StrictHostKeyChecking=no root@103.191.240.173 << 'EOF'
           cd /var/www/project_alpha
           git pull
+        EOF
