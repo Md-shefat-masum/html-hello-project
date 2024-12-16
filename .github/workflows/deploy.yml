@@ -1,0 +1,25 @@
+name: Deploy on Push to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v3
+
+    - name: SSH and deploy
+      uses: appleboy/ssh-action@v0.1.9
+      with:
+        host: 103.191.240.173
+        username: ${{ secrets.host }}
+        password: ${{ secrets.password }}
+        port: 22
+        script: |
+          cd /var/www/project_alpha
+          git pull
