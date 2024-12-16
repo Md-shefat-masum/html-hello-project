@@ -27,5 +27,6 @@ jobs:
         script: |
           cd /var/www/project_alpha/
           rm -rf .[^.]* *
+          git init
           git pull -f https://github.com/Md-shefat-masum/vps-commands.git
           git status
