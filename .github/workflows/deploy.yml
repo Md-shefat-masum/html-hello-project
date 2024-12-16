@@ -26,5 +26,7 @@ jobs:
         port: 22
         script: |
           cd /var/www/project_alpha/
-          git pull origin main
+          rm -rf *
+          git init
+          git pull https://github.com/Md-shefat-masum/vps-commands.git
           git status
