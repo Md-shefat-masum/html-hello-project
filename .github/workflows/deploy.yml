@@ -28,5 +28,5 @@ jobs:
           cd /var/www/project_alpha/
           rm -rf *
           git init
-          git pull https://github.com/Md-shefat-masum/vps-commands.git
+          git pull origin https://github.com/Md-shefat-masum/vps-commands.git -b main
           git status
