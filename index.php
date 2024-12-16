@@ -4,3 +4,4 @@
 <H1>hellow 4 from php</H1>
 <?php
 echo "hellow 5 from php";
+phpinfo();
